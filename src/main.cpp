@@ -9,19 +9,9 @@ int main() {
 	
 	int z = -5;
 
-	cout << to_string(z);
+	c = a * b;
 
-	c = a*b;
-	
-	//c.output();
-	//string f = "Disconmemeay";
-	//cout << f.size() << endl;
-	string z = " 1235 46";
-	string z1 = "+";
-	z1 += "123245";
-	cout << z1;
-
-	//cout << c.toDec();
+	cout << a.toDec();
 	system("pause");
 	return 1;
 }
