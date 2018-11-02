@@ -1,6 +1,6 @@
 #pragma once
 #include<iostream>
-
+#include<string>
 using namespace std;
 
 #define bit 128
@@ -11,6 +11,9 @@ private:
 	uint64_t low;
 public:
 	QFloat();
+	QFloat(string s);
+	QFloat(bool *a);
+	void input();
 	/*
 	QFloat(string s);
 	QFloat(const QFloat & Q);
