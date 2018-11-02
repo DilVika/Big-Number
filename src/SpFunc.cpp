@@ -39,10 +39,13 @@ bool* strToBin(string s) {
 	return a;
 }
 
-bool* decToBin(unsigned long n) {
+bool* decToBin(uint64_t n) {
 	bool* a = new bool[bit / 2];
-	for (int i = bit / 2 - 1; i >= 0; i--)
-		a[i] = (n >> bit / 2 - 1 - i) & 1;
+	int index = 0;
+	for (int i = bit / 2 - 1; i >= 0; i--) {
+		a[i] = (n>>index) & 1;
+		index++;
+	}
 	return a;
 }
 
@@ -52,7 +55,7 @@ bool* connect2Bin(bool*first, bool*last, int n) {
 		c[j] = first[i];
 		c[n / 2 + j] = last[i];
 		j++;
-	}
+	}	
 	return c;
 }
 
@@ -79,10 +82,10 @@ string boolToStr(bool*a,int start,int end) {
 // Convert any bool array to int with lenght
 // input: bool array , start & end index in bool array
 // output: uchar
-uint16_t bitArrayToDec(bool arr[], int start, int end)
+uint64_t bitArrayToDec(bool arr[], int start, int end)
 {
-	uint16_t ret = 0;
-	uint16_t tmp;
+	uint64_t ret = 0;
+	uint64_t tmp;
 	for (int i = start; i <= end; i++) {
 		tmp = arr[i];
 		ret |= tmp << (end - i);
@@ -107,11 +110,10 @@ bool checkEqualZero(bool *a) {
 
 // test Func
 void outBoolStr(bool * a) {
-	for (int i = 0; i < bit; i++) {
-		if (i % 4 == 0 && i > 0)
-			cout << " ";
+	for (int i = 0; i < bit/2; i++) {
+		//if (i % 4 == 0 && i > 0)
+			//cout << " ";
 		cout << a[i];
-
 	}
 }
 

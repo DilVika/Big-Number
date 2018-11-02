@@ -1,18 +1,18 @@
 ﻿#pragma once
 #include <iostream>
 #include <string>
-#define bit 32
+#define bit 128
 
 using namespace std;
 
 class QINT {
 private:
 	// variable store value
-	uint16_t data[2];
+	uint64_t data[2];
 public:
 	// Inicialize Constructor
 	QINT();
-	QINT(int16_t N);
+	QINT(int64_t N);
 	QINT(string s);
 	QINT(const QINT& Q);
 	QINT(bool *a);
@@ -60,10 +60,10 @@ public:
 
 //Support Functions.
 
-uint16_t bitArrayToDec(bool arr[], int start, int end);
+uint64_t bitArrayToDec(bool arr[], int start, int end);
 string strDiv2(string s);
 bool* strToBin(string s);
-bool* decToBin(unsigned long n);
+bool* decToBin(uint64_t n);
 //string boolToStr(bool*a,int start,int end);
 bool* connect2Bin(bool*first, bool*last, int n);
 void shiftRight1Bit(bool*a, bool head);
