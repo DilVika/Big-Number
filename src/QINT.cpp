@@ -7,8 +7,8 @@ void QINT::input(){
 	stored(temp);
 }
 void QINT::output(){
-	cout << (int)data[0] << endl;
-	cout << (int)data[1] << endl;
+	cout << data[0] << " ";
+	cout << data[1] << endl;
 }
 
 void QINT::stored(string s)
@@ -25,6 +25,7 @@ bool * QINT::data2Bin()const
 	bool* a = decToBin(this->data[0]);
 	bool* b = decToBin(this->data[1]);
 	bool*c = connect2Bin(a, b, bit);
+
 	delete[]a;
 	delete[]b;
 	return c;
@@ -48,7 +49,7 @@ QINT::QINT() {
 	data[0] = 0;
 	data[1] = 0;
 }
-QINT::QINT(int16_t N) {
+QINT::QINT(int64_t N) {
 	data[0] = 0;
 	data[1] = N;
 }
@@ -122,13 +123,15 @@ QINT operator+(const QINT & Q1, const QINT & Q2)
 {
 	bool *q1 = Q1.data2Bin();
 	bool *q2 = Q2.data2Bin();
+
 	bool *result = new bool[bit];
 	bool mem = 0;
 	for (int i = bit - 1; i >= 0; i--)
 	{
 		result[i] = (q1[i] ^ q2[i]) ^ mem;
-		mem = q1[i] & q2[i] | mem * (q1[i] ^ q2[i]);
+		mem =( q1[i] & q2[i]) | ( mem & (q1[i] ^ q2[i]));
 	}
+
 	QINT res(result);
 	delete[]q1;
 	delete[]q2;
@@ -329,9 +332,14 @@ string QINT::toDec()
 	string result;
 	bool isNegative = (this->data[0] >>( (bit/2) -1) & 1);
 
-	int16_t high = this->data[0];
-	if (isNegative == 1) 
+	int64_t high = this->data[0];
+	int64_t low = this->data[1];
+	if (isNegative == 1)
+	{
 		high = this->OffSet2().data[0];
+		low = this->OffSet2().data[1];
+	}
+
 
 	// Calculate at High number
 	double redict = 0.0;
@@ -346,7 +354,7 @@ string QINT::toDec()
 		high = high >> 1;
 	}
 
-	result = addByString(temp, to_string(this->data[1]));
+	result = addByString(temp, to_string(low));
 	if (isNegative)  result = "-" + result;
 
 	return result;
