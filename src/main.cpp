@@ -11,7 +11,7 @@ int main() {
 	c = a/b;
 	c.output();
 
-	//cout << c.toDec();
+	cout << a.toDec();
 
 	system("pause");
 	return 1;

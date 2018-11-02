@@ -332,9 +332,14 @@ string QINT::toDec()
 	string result;
 	bool isNegative = (this->data[0] >>( (bit/2) -1) & 1);
 
-	int16_t high = this->data[0];
-	if (isNegative == 1) 
+	int64_t high = this->data[0];
+	int64_t low = this->data[1];
+	if (isNegative == 1)
+	{
 		high = this->OffSet2().data[0];
+		low = this->OffSet2().data[1];
+	}
+
 
 	// Calculate at High number
 	double redict = 0.0;
@@ -349,7 +354,7 @@ string QINT::toDec()
 		high = high >> 1;
 	}
 
-	result = addByString(temp, to_string(this->data[1]));
+	result = addByString(temp, to_string(low));
 	if (isNegative)  result = "-" + result;
 
 	return result;
