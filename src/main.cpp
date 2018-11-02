@@ -7,11 +7,12 @@ int main() {
 	a.input();
 	b.input();
 	
-	int z = -5;
 
-	c = a * b;
+	c = a/b;
+	c.output();
 
 	cout << a.toDec();
+
 	system("pause");
 	return 1;
 }
