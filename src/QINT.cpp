@@ -327,14 +327,16 @@ QINT QINT::OffSet2()
 string QINT::toDec()
 {
 	string result;
-	bool isNegative = (this->data[0] >> 31) & 1;
+	bool isNegative = (this->data[0] >>( (bit/2) -1) & 1);
 
-	int64_t high = (isNegative ==1 )?  this->OffSet2().data[0] : this->data[0];
+	int16_t high = this->data[0];
+	if (isNegative == 1) 
+		high = this->OffSet2().data[0];
 
 	// Calculate at High number
 	double redict = 0.0;
 	string temp = to_string(0);
-	for (int i = 64; i < 128; ++i)
+	for (int i = bit/2; i < bit; ++i)
 	{
 		if ((high & 1))
 		{
