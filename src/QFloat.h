@@ -3,14 +3,12 @@
 
 using namespace std;
 
-#define bit 32
+#define bit 128
 
 class QFloat {
 private:
-	uint16_t signAndExponnent;
-	uint16_t frac0;
-	uint32_t frac1;
-	uint64_t frac2;
+	uint64_t high;
+	uint64_t low;
 public:
 	QFloat();
 	/*
