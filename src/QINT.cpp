@@ -318,7 +318,10 @@ QINT & QINT::operator=(const char *)
 
 QINT QINT::OffSet2()
 {
-//
+	bool *temp = this->data2BinOffSet2();
+	QINT result(temp);
+	delete[] temp;
+	return result;
 }
 
 string QINT::toDec()
