@@ -15,12 +15,25 @@ bool* str2Bin(string s) {
 	bool*a = new bool[bit];
 
 	int startPos = 0;
+
 	if (s[0] == '-')
 	{
 		a[0] = 1; startPos = 1;
 	}
 	else a[0] = 0;
 
+	int pointPos = 0;
 
+	for (int i = 0; i < s.size(); i++)
+		if(s[i]=='.'){
+			pointPos = i; break;
+		}
+
+	string intStr;
+	intStr = s.substr(startPos, pointPos - startPos);
+
+
+
+	string fracStr;
 
 }
