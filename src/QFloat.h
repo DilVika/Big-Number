@@ -23,3 +23,12 @@ public:
 
 	*/
 };
+
+uint64_t bitArrayToDec(bool arr[], int start, int end);
+bool* str2Bin(string s);
+string strDiv2(string s);
+string strMul2(string s ,bool &mem);
+bool* dec2BinExpo(uint16_t n);
+void merge(bool *des, bool * a, int start, int size);
+bool* mergeIntFrac(string Int, string Frac);
+void outBoolStr(bool * a);
