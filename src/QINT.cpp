@@ -312,13 +312,6 @@ QINT & QINT::operator=(const QINT & Q) {
 	return *this;
 }
 
-// ******unfinished
-QINT & QINT::operator=(const char *)
-{
-	// TODO: insert return statement here
-	return *this;
-}
-
 QINT QINT::OffSet2()
 {
 	bool *temp = this->data2BinOffSet2();

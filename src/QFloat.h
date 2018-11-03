@@ -12,18 +12,14 @@ private:
 public:
 	QFloat();
 	QFloat(string s);
+	QFloat(const QFloat & Q);
 	QFloat(bool *a);
 	void input();
-	/*
-	QFloat(string s);
-	QFloat(const QFloat & Q);
-	QFloat(bool* a);
-
 	void stored(string s);
+
+	/*
 	bool* data2Bin()const;
 	bool* data2BinOffSet2()const;
 
-	QFloat& operator=(const QFloat &Q);
-	QFloat& operator=(const char*);
 	*/
 };

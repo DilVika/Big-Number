@@ -31,7 +31,6 @@ public:
 
 	// asssignment
 	QINT& operator=(const QINT &Q);
-	QINT& operator=(const char*);
 
 	//bit operator
 	friend QINT operator &(const QINT &Q1, const QINT &Q2);
