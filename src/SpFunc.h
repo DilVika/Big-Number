@@ -15,8 +15,10 @@ using namespace std;
 // Load file
 
 // Save to file
-
-
+// Convert any binary array to hexa array
+string bin2Hex(bool*a);
+// Convert Hex array to binary array
+bool* hex2Bin(string s);
 // Convert any bool array to int with lenght
 uint64_t bitArrayToDec(bool arr[], int start, int end);
 // Divide string by 2

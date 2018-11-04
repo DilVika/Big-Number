@@ -6,7 +6,8 @@ int main(int argc, char ** argv) {
 	b.input();
 
 	res = a * b;
-	cout << "res = " << res.toDec() << endl;
+	cout << "Dec = " << res.toDec() << endl;
+	cout << "Hex = " << bin2Hex(res.data2Bin()) << endl;
 
 	QFloat d;
 	d.input();

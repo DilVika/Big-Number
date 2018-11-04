@@ -69,6 +69,47 @@ bool* convertToOffset2(bool* a) {
 	return a;
 }
 
+string bin2Hex(bool * a){
+	char temp;
+	string res;
+	for (int i = 0; i < bit / 4; i++){
+		temp = 0;
+		for (int j = 0; j < 4; j++)
+			temp = (temp << 1) | a[4*i+j];
+		if(temp < 10)
+			res.push_back(temp + '0');
+		else res.push_back(temp + 55);
+	}
+	int index = 0;
+	while (res[index] == '0') {
+		index++;
+	}
+
+	delete[]a;
+	if (index != 0) {
+		string sub = res.substr(index, res.length() - index);
+		return sub;
+	}
+	return res;
+}
+
+bool * hex2Bin(string s)
+{
+	bool *res = new bool[bit];
+	memset(res, 0, bit);
+	bool temp = 0;
+	int index = 127;
+	for (int i = s.length()-1; i >= 0; i--) {
+		if (s[i] <= '9')
+			for (int j = 0; j < 4 ; j++)
+				res[index--] = ((s[i] - '0') >> j) & 1;
+		else 
+			for (int j = 0; j < 4 ; j++)
+				res[index--] = ((s[i] - 55) >> j) & 1;
+	}
+	return res;
+}
+
 uint64_t bitArrayToDec(bool arr[], int start, int end)
 {
 	uint64_t ret = 0;

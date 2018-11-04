@@ -11,6 +11,8 @@ public:
 	QINT(int64_t N);
 	// Inicialize with string number
 	QINT(string s);
+	// Inicialize with hexa array
+
 	// Copy Constructor
 	QINT(const QINT& Q);
 	// Inicialize with binary array
