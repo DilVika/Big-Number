@@ -1,34 +1,27 @@
 #pragma once
-#include<iostream>
-#include<string>
-using namespace std;
-
-#define bit 128
+#include"SpFunc.h"
 
 class QFloat {
 private:
 	uint64_t high;
 	uint64_t low;
 public:
+	//*** Constructor ***
+	// Default with value = 0
 	QFloat();
+	// Inicialize with string number
 	QFloat(string s);
+	// Copy Constructor
 	QFloat(const QFloat & Q);
+	// Inicialize with binary array
 	QFloat(bool *a);
+
+	// Set value from keyboard
 	void input();
+	// Store value to variale
 	void stored(string s);
-
-	/*
+	// Get binary array
 	bool* data2Bin()const;
-	bool* data2BinOffSet2()const;
-
-	*/
+	// Print binary array
+	void outBoolStr();
 };
-
-uint64_t bitArrayToDec(bool arr[], int start, int end);
-bool* str2Bin(string s);
-string strDiv2(string s);
-string strMul2(string s ,bool &mem);
-bool* dec2BinExpo(uint16_t n);
-void merge(bool *des, bool * a, int start, int size);
-bool* mergeIntFrac(string Int, string Frac);
-void outBoolStr(bool * a);

@@ -6,20 +6,13 @@ void QINT::input(){
 	cin >> temp;
 	stored(temp);
 }
-void QINT::output(){
-	cout << data[0] << " ";
-	cout << data[1] << endl;
-}
-
 void QINT::stored(string s)
 {
-	bool*str = strToBin(s);
+	bool*str = strInt2Bin(s);
 	for (int i = 0; i < 2; i++)
 		data[i] = bitArrayToDec(str, i*bit / 2, (i + 1)*bit / 2 - 1);   // convert bit/4 element from bool array to unsigned decimal
 	delete[]str;
 }
-
-
 bool * QINT::data2Bin()const
 {
 	bool* a = decToBin(this->data[0]);
@@ -30,7 +23,6 @@ bool * QINT::data2Bin()const
 	delete[]b;
 	return c;
 }
-
 bool * QINT::data2BinOffSet2()const
 {
 	bool *a = this->data2Bin();
@@ -41,6 +33,15 @@ bool * QINT::data2BinOffSet2()const
 	for (; i >= 0; i--)
 		a[i] = !a[i];
 	return a;
+}
+void QINT::outBoolStr() {
+	bool *a = this->data2Bin();
+	for (int i = 0; i < bit; i++) {
+		//if (i % 4 == 0 && i > 0)
+			//cout << " ";
+		cout << a[i];
+	}
+	delete[]a;
 }
 
 // *********   Constructor  ***********
@@ -118,7 +119,7 @@ QINT operator~(const QINT &Q1)
 	QINT a(res);
 	return a;
 }
-//
+// Math Operator
 QINT operator+(const QINT & Q1, const QINT & Q2)
 {
 	bool *q1 = Q1.data2Bin();
@@ -319,7 +320,7 @@ QINT QINT::OffSet2()
 	delete[] temp;
 	return result;
 }
-
+// 
 string QINT::toDec()
 {
 	string result;
