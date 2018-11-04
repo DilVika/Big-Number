@@ -1,6 +1,8 @@
 ﻿#pragma once
 #include<iostream>
 #include<string>
+#include<fstream>
+
 #define bit 128
 using namespace std;
 
@@ -9,6 +11,11 @@ using namespace std;
 //class QFloat;
 
 // *****  Support Functions *****
+
+// Load file
+
+// Save to file
+
 
 // Convert any bool array to int with lenght
 uint64_t bitArrayToDec(bool arr[], int start, int end);

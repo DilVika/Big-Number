@@ -1,6 +1,6 @@
 #include"QINT.h"
 #include"QFloat.h"
-int main() {
+int main(int argc, char ** argv) {
 	QINT a,b,res;
 	a.input();
 	b.input();
