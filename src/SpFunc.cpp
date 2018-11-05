@@ -43,7 +43,7 @@ bool* decToBin(uint64_t n) {
 	bool* a = new bool[bit / 2];
 	int index = 0;
 	for (int i = bit / 2 - 1; i >= 0; i--) {
-		a[i] = (n>>index) & 1;
+		a[i] = (n >> index) & 1;
 		index++;
 	}
 	return a;
@@ -55,7 +55,7 @@ bool* connect2Bin(bool*first, bool*last, int n) {
 		c[j] = first[i];
 		c[n / 2 + j] = last[i];
 		j++;
-	}	
+	}
 	return c;
 }
 
@@ -110,7 +110,7 @@ bool checkEqualZero(bool *a) {
 
 // test Func
 void outBoolStr(bool * a) {
-	for (int i = 0; i < bit/2; i++) {
+	for (int i = 0; i < bit / 2; i++) {
 		//if (i % 4 == 0 && i > 0)
 			//cout << " ";
 		cout << a[i];
@@ -177,6 +177,14 @@ string addByString(string a, string b)
 		addition += result[i];   // reversing the answer
 
 	return addition;
+}
+
+string convertDoubToInt(string str)
+{
+	for (int i = 0; i < str.length(); ++i)
+		if (str[i] == '.')
+			str.erase(i, str.length() - i);
+	return str;
 }
 
 

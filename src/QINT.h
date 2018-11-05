@@ -73,3 +73,4 @@ bool* convertToOffset2(bool* a);
 void outBoolStr(bool * a);
 
 string addByString(string a, string b);
+string convertDoubToInt(string str);

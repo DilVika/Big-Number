@@ -342,14 +342,14 @@ string QINT::toDec()
 
 
 	// Calculate at High number
-	double redict = 0.0;
+	long double redict = 0.0;
 	string temp = to_string(0);
 	for (int i = bit/2; i < bit; ++i)
 	{
 		if ((high & 1))
 		{
-			redict = pow(2.0, (double)i);
-			temp = addByString(temp, to_string(redict));
+			redict = pow(2.0, (long double)i);
+			temp = addByString(temp, convertDoubToInt(to_string(redict)));
 		}
 		high = high >> 1;
 	}
