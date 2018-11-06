@@ -5,13 +5,11 @@ int main(int argc, char ** argv) {
 	a.input();
 	b.input();
 
-	res = a * b;
+	res = a + b;
+	cout << "Bin = " << bool2Str(res.data2Bin()) << endl;
 	cout << "Dec = " << res.toDec() << endl;
 	cout << "Hex = " << bin2Hex(res.data2Bin()) << endl;
 
-	QFloat d;
-	d.input();
-	cout << "QFloat binary : " << bool2Str(d.data2Bin()) << endl;
 	system("pause");
 	return 0;
 }

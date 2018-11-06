@@ -320,14 +320,14 @@ QINT QINT::OffSet2()
 	delete[] temp;
 	return result;
 }
-// 
+
 string QINT::toDec()
 {
 	string result;
-	bool isNegative = (this->data[0] >>( (bit/2) -1) & 1);
+	bool isNegative = (this->data[0] >> ((bit / 2) - 1) & 1);
 
-	int64_t high = this->data[0];
-	int64_t low = this->data[1];
+	uint64_t high = this->data[0];
+	uint64_t low = this->data[1];
 	if (isNegative == 1)
 	{
 		high = this->OffSet2().data[0];
@@ -336,14 +336,14 @@ string QINT::toDec()
 
 
 	// Calculate at High number
-	double redict = 0.0;
+	long double redict = 0.0;
 	string temp = to_string(0);
-	for (int i = bit/2; i < bit; ++i)
+	for (int i = bit / 2; i < bit; ++i)
 	{
 		if ((high & 1))
 		{
-			redict = pow(2.0, (double)i);
-			temp = addByString(temp, to_string(redict));
+			redict = pow(2.0, (long double)i);
+			temp = addByString(temp, convertDoubToInt(to_string(redict)));
 		}
 		high = high >> 1;
 	}

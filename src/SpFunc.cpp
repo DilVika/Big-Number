@@ -70,6 +70,8 @@ bool* convertToOffset2(bool* a) {
 }
 
 string bin2Hex(bool * a){
+	if (checkEqualZero(a))
+		return "0";
 	char temp;
 	string res;
 	for (int i = 0; i < bit / 4; i++){
@@ -199,6 +201,16 @@ string addByString(string a, string b)
 
 	return addition;
 }
+
+string convertDoubToInt(string str)
+{
+	for (int i = 0; i < str.length(); ++i)
+		if (str[i] == '.')
+			str.erase(i, str.length() - i);
+	return str;
+}
+
+
 string trim(string a)   // for removing leading 0s
 {
 	string res = "";

@@ -44,6 +44,8 @@ bool* dec2BinExpo(uint16_t n);
 void merge(bool *des, bool * a, int start, int size);
 // Merge Int binary with Fraction binary
 bool* mergeIntFrac(string Int, string Frac);
+// Convert Double Number to Int
+string convertDoubToInt(string str);
 
 // ************ QInt **************
 
