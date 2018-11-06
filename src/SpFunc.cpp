@@ -749,5 +749,7 @@ void AutoTest(char*input, char*output) {
 		index = 0;
 		a.erase(a.begin(), a.end());
 	}
+	file.close();
+	out.close();
 	cout << "Save Done!\n";
 }
