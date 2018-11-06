@@ -52,7 +52,12 @@ bool* connect2Bin(bool*first, bool*last, int n) {
 string bool2Str(bool * a)
 {
 	string s;
-	for (int i = 0; i < bit; i++)
+	int index = 0;
+	while (index < 128) {
+		if (a[index]) break;
+		index++;
+	}
+	for (int i = index; i < bit; i++)
 		s.push_back(a[i] + '0');
 	delete[]a;
 	return s;
@@ -362,4 +367,387 @@ bool* mergeIntFrac(string Int, string Frac) {
 		res[size++] = 0;
 
 	return res;
+}
+bool * str2Bool(string s) {
+	bool *a = new bool[128];
+	memset(a, 0, 128);
+	int index = 127;
+	for (int i = s.length() - 1; i >= 0 ; i--)
+		a[index--] = s[i]-'0';
+	return a;
+}
+void AutoTest(char*input, char*output) {
+	vector<string> a;
+	int index = 0;
+	string token;
+	ifstream file(input);
+	ofstream out(output);
+	while (getline(file, token)) {
+		istringstream line(token);
+		while (line >> token) {
+			a.push_back(token);
+			index++;
+		}
+		if (file.unget().get() == '\n' || file.eof()) {
+			if (index == 3) {
+				if (a[1] == "~") {
+					if (a[0] == "2") {
+						bool *temp = str2Bool(a[2]);
+						QINT res(temp);
+						res = ~res;
+						delete[]temp;
+						out<<bool2Str(res.data2Bin())<<endl;
+						cout << "~ [BIN]\n";
+					}
+					else if (a[0] == "10") {
+						QINT res(a[2]);
+						res= ~res;
+						out<<res.toDec()<<endl;
+						cout << "~ [DEC]\n";
+					}
+					else if (a[0] == "16") {
+						bool* temp=hex2Bin(a[2]);
+						QINT res(temp);
+						res = ~res;
+						delete[]temp;
+						out<<bin2Hex(res.data2Bin())<<endl;
+						cout << "~ [HEX]\n";
+					}
+				}
+				else if (a[0] == "2") {
+					if (a[1] == "16") {
+						bool *temp = str2Bool(a[2]);
+						QINT res(temp);
+						delete[]temp;
+						out<<bin2Hex(res.data2Bin())<<endl;
+						cout << "[BIN] to [HEX]\n";
+					}
+					else if (a[1] == "10") {
+						bool *temp = str2Bool(a[2]);
+						QINT res(temp);
+						delete[]temp;
+						out<<res.toDec()<<endl;
+						cout << "[BIN] to [DEC]\n";
+					}
+				}
+				else if (a[0] == "10") {
+					if (a[1] == "16") {
+						QINT res(a[2]);
+						out<<bin2Hex(res.data2Bin())<<endl;
+						cout << "[DEC] to [HEX]\n";
+					}
+					else if (a[1] == "2") {
+						QINT res(a[2]);
+						out<<bool2Str(res.data2Bin())<<endl;
+						cout << "[DEC] to [BIN]\n";
+					}
+				}
+				else if (a[0] == "16") {
+					if (a[1] == "10") {
+						bool* temp=hex2Bin(a[2]);
+						QINT res(temp);
+						delete[]temp;
+						out<<res.toDec()<<endl;
+						cout << "[HEX] to [DEC]\n";
+					}
+					else if (a[1] == "2") {
+						bool* temp=hex2Bin(a[2]);
+						out<<bool2Str(temp)<<endl;
+						cout << "[HEX] to [BIN]\n";
+					}
+				}
+			}
+			if (index == 4) {
+				if (a[2] == "+") {
+					if (a[0] == "2") {
+						bool *q1 = str2Bool(a[1]);
+						bool *q2 = str2Bool(a[3]);
+						QINT Q1(q1);
+						QINT Q2(q2);
+						QINT res;
+						res = Q1 + Q2;
+						out<<bool2Str(res.data2Bin())<<endl;
+						delete[]q1;
+						delete[]q2;
+						cout << "[BIN] + [BIN]\n";
+					}
+					else if (a[0] == "10") {
+						QINT Q1(a[1]);
+						QINT Q2(a[3]);
+						QINT res;
+						res = Q1 + Q2;
+						out<<res.toDec()<<endl;
+						cout << "[DEC] + [DEC]\n";
+					}
+					else if (a[0] == "16") {
+						bool* q1=hex2Bin(a[1]);
+						bool* q2=hex2Bin(a[3]);
+						QINT Q1(q1);
+						QINT Q2(q2);
+						QINT res;
+						res = Q1 + Q2;
+						out<<bin2Hex(res.data2Bin())<<endl;
+						delete[]q1;
+						delete[]q2;
+						cout << "[HEX] + [HEX]\n";
+					}
+				}
+				else if (a[2] == "-") {
+					if (a[0] == "2") {
+						bool *q1 = str2Bool(a[1]);
+						bool *q2 = str2Bool(a[3]);
+						QINT Q1(q1);
+						QINT Q2(q2);
+						QINT res;
+						res = Q1 - Q2;
+						out<<bool2Str(res.data2Bin())<<endl;
+						delete[]q1;
+						delete[]q2;
+						cout << "[BIN] - [BIN]\n";
+					}
+					else if (a[0] == "10") {
+						QINT Q1(a[1]);
+						QINT Q2(a[3]);
+						QINT res;
+						res = Q1 - Q2;
+						out<<res.toDec()<<endl;
+						cout << "[DEC] - [DEC]\n";
+					}
+					else if (a[0] == "16") {
+						bool* q1=hex2Bin(a[1]);
+						bool* q2=hex2Bin(a[3]);
+						QINT Q1(q1);
+						QINT Q2(q2);
+						QINT res;
+						res = Q1 - Q2;
+						out<<bin2Hex(res.data2Bin())<<endl;
+						delete[]q1;
+						delete[]q2;
+						cout << "[HEX] - [HEX]\n";
+					}
+				}
+				else if (a[2] == "*") {
+					if (a[0] == "2") {
+						bool *q1 = str2Bool(a[1]);
+						bool *q2 = str2Bool(a[3]);
+						QINT Q1(q1);
+						QINT Q2(q2);
+						QINT res;
+						res = Q1 * Q2;
+						out<<bool2Str(res.data2Bin())<<endl;
+						delete[]q1;
+						delete[]q2;
+						cout << "[BIN] * [BIN]\n";
+					}
+					else if (a[0] == "10") {
+						QINT Q1(a[1]);
+						QINT Q2(a[3]);
+						QINT res;
+						res = Q1 * Q2;
+						out<<res.toDec()<<endl;
+						cout << "[DEC] * [DEC]\n";
+					}
+					else if (a[0] == "16") {
+						bool* q1=hex2Bin(a[1]);
+						bool* q2=hex2Bin(a[3]);
+						QINT Q1(q1);
+						QINT Q2(q2);
+						QINT res;
+						res = Q1 * Q2;
+						out<<bin2Hex(res.data2Bin())<<endl;
+						delete[]q1;
+						delete[]q2;
+						cout << "[HEX] * [HEX]\n";
+					}
+				}
+				else if (a[2] == "/") {
+					if (a[0] == "2") {
+						bool *q1 = str2Bool(a[1]);
+						bool *q2 = str2Bool(a[3]);
+						QINT Q1(q1);
+						QINT Q2(q2);
+						QINT res;
+						res = Q1 / Q2;
+						out<<bool2Str(res.data2Bin())<<endl;
+						delete[]q1;
+						delete[]q2;
+						cout << "[BIN] / [BIN]\n";
+					}
+					else if (a[0] == "10") {
+						QINT Q1(a[1]);
+						QINT Q2(a[3]);
+						QINT res;
+						res = Q1 / Q2;
+						out<<res.toDec()<<endl;
+						cout << "[DEC] / [DEC]\n";
+					}
+					else if (a[0] == "16") {
+						bool* q1=hex2Bin(a[1]);
+						bool* q2=hex2Bin(a[3]);
+						QINT Q1(q1);
+						QINT Q2(q2);
+						QINT res;
+						res = Q1 / Q2;
+						out<<bin2Hex(res.data2Bin())<<endl;
+						delete[]q1;
+						delete[]q2;
+						cout << "[HEX] / [HEX]\n";
+					}
+				}
+				else if (a[2] == ">>") {
+					if (a[0] == "2") {
+						bool *q1 = str2Bool(a[1]);
+						QINT Q1(q1);
+						delete[]q1;
+						Q1 = Q1 >> stoi(a[3]);
+						out<<bool2Str(Q1.data2Bin())<<endl;
+						cout << "[BIN] >> n\n";
+					}
+					else if (a[0] == "10") {
+						QINT Q1(a[1]);
+						Q1 = Q1 >> stoi(a[3]);
+						out<<Q1.toDec()<<endl;
+						cout << "[DEC] >> n\n";
+					}
+					else if (a[0] == "16") {
+						bool* q1=hex2Bin(a[1]);
+						QINT Q1(q1);
+						delete[]q1;
+						Q1 = Q1 >> stoi(a[3]);
+						out<<bin2Hex(Q1.data2Bin())<<endl;
+						cout << "[HEX] >> n\n";
+					}
+				}
+				else if (a[2] == "<<") {
+					if (a[0] == "2") {
+						bool *q1 = str2Bool(a[1]);
+						QINT Q1(q1);
+						delete[]q1;
+						Q1 = Q1 << stoi(a[3]);
+						out<<bool2Str(Q1.data2Bin())<<endl;
+						cout << "[BIN] << n\n";
+					}
+					else if (a[0] == "10") {
+						QINT Q1(a[1]);
+						Q1 = Q1 << stoi(a[3]);
+						out<<Q1.toDec()<<endl;
+						cout << "[DEC] << n\n";
+					}
+					else if (a[0] == "16") {
+						bool* q1=hex2Bin(a[1]);
+						QINT Q1(q1);
+						delete[]q1;
+						Q1 = Q1 << stoi(a[3]);
+						out<<bin2Hex(Q1.data2Bin())<<endl;
+						cout << "[HEX] << n\n";
+					}
+				}
+				else if (a[2] == "&") {
+					if (a[0] == "2") {
+						bool *q1 = str2Bool(a[1]);
+						bool *q2 = str2Bool(a[3]);
+						QINT Q1(q1);
+						QINT Q2(q2);
+						QINT res;
+						res = Q1 & Q2;
+						out<<bool2Str(res.data2Bin())<<endl;
+						delete[]q1;
+						delete[]q2;
+						cout << "[BIN] & [BIN]\n";
+					}
+					else if (a[0] == "10") {
+						QINT Q1(a[1]);
+						QINT Q2(a[3]);
+						QINT res;
+						res = Q1 & Q2;
+						out<<res.toDec()<<endl;
+						cout << "[DEC] & [DEC]\n";
+					}
+					else if (a[0] == "16") {
+						bool* q1=hex2Bin(a[1]);
+						bool* q2=hex2Bin(a[3]);
+						QINT Q1(q1);
+						QINT Q2(q2);
+						QINT res;
+						res = Q1 & Q2;
+						out<<bin2Hex(res.data2Bin())<<endl;
+						delete[]q1;
+						delete[]q2;
+						cout << "[HEX] & [HEX]\n";
+					}
+				}
+				else if (a[2] == "|") {
+					if (a[0] == "2") {
+						bool *q1 = str2Bool(a[1]);
+						bool *q2 = str2Bool(a[3]);
+						QINT Q1(q1);
+						QINT Q2(q2);
+						QINT res;
+						res = Q1 | Q2;
+						out<<bool2Str(res.data2Bin())<<endl;
+						delete[]q1;
+						delete[]q2;
+						cout << "[BIN] | [BIN]\n";
+					}
+					else if (a[0] == "10") {
+						QINT Q1(a[1]);
+						QINT Q2(a[3]);
+						QINT res;
+						res = Q1 | Q2;
+						out<<res.toDec()<<endl;
+						cout << "[DEC] | [DEC]\n";
+					}
+					else if (a[0] == "16") {
+						bool* q1=hex2Bin(a[1]);
+						bool* q2=hex2Bin(a[3]);
+						QINT Q1(q1);
+						QINT Q2(q2);
+						QINT res;
+						res = Q1 | Q2;
+						out<<bin2Hex(res.data2Bin())<<endl;
+						delete[]q1;
+						delete[]q2;
+						cout << "[HEX] | [HEX]\n";
+					}
+				}
+				else if (a[2] == "^") {
+					if (a[0] == "2") {
+						bool *q1 = str2Bool(a[1]);
+						bool *q2 = str2Bool(a[3]);
+						QINT Q1(q1);
+						QINT Q2(q2);
+						QINT res;
+						res = Q1 ^ Q2;
+						out<<bool2Str(res.data2Bin())<<endl;
+						delete[]q1;
+						delete[]q2;
+						cout << "[BIN] ^ [BIN]\n";
+					}
+					else if (a[0] == "10") {
+						QINT Q1(a[1]);
+						QINT Q2(a[3]);
+						QINT res;
+						res = Q1 ^ Q2;
+						out<<res.toDec()<<endl;
+						cout << "[DEC] ^ [DEC]\n";
+					}
+					else if (a[0] == "16") {
+						bool* q1=hex2Bin(a[1]);
+						bool* q2=hex2Bin(a[3]);
+						QINT Q1(q1);
+						QINT Q2(q2);
+						QINT res;
+						res = Q1 ^ Q2;
+						out<<bin2Hex(res.data2Bin())<<endl;
+						delete[]q1;
+						delete[]q2;
+						cout << "[HEX] ^ [HEX]\n";
+					}
+				}
+			}
+		}
+		index = 0;
+		a.erase(a.begin(), a.end());
+	}
+	cout << "Save Done!\n";
 }

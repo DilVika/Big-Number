@@ -2,7 +2,8 @@
 #include<iostream>
 #include<string>
 #include<fstream>
-
+#include<sstream>
+#include<vector>
 #define bit 128
 using namespace std;
 
@@ -12,9 +13,6 @@ using namespace std;
 
 // *****  Support Functions *****
 
-// Load file
-
-// Save to file
 // Convert any binary array to hexa array
 string bin2Hex(bool*a);
 // Convert Hex array to binary array
@@ -30,6 +28,11 @@ bool* decToBin(uint64_t n);
 bool* connect2Bin(bool*first, bool*last, int n);
 // Convert bool array to string
 string bool2Str(bool *a);
+// string binary to bool array
+bool * str2Bool(string s);
+// Auto testing
+void AutoTest(char*input, char*output);
+
 
 // ************ QFloat ************
 // Convert string Float to Binary array

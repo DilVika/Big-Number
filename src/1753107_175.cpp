@@ -1,6 +1,10 @@
 #include"QINT.h"
 #include"QFloat.h"
 int main(int argc, char ** argv) {
+	if (argc == 3) {
+		AutoTest(argv[1], argv[2]);
+		return 0;
+	}
 	QINT a,b,res;
 	a.input();
 	b.input();
