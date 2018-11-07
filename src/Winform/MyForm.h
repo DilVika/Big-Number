@@ -97,6 +97,12 @@ namespace Calculator {
 	private: System::Windows::Forms::Button^  button10;
 	private: System::Windows::Forms::Button^  button11;
 	private: System::Windows::Forms::Button^  btnNegative;
+	private: System::Windows::Forms::Button^  btnF;
+	private: System::Windows::Forms::Button^  btnE;
+	private: System::Windows::Forms::Button^  btnB;
+	private: System::Windows::Forms::Button^  btnC;
+	private: System::Windows::Forms::Button^  btnD;
+	private: System::Windows::Forms::Button^  btnA;
 
 
 	private:
@@ -114,6 +120,12 @@ namespace Calculator {
 		{
 			this->tabCTRL = (gcnew System::Windows::Forms::TabControl());
 			this->tabPage1 = (gcnew System::Windows::Forms::TabPage());
+			this->btnF = (gcnew System::Windows::Forms::Button());
+			this->btnE = (gcnew System::Windows::Forms::Button());
+			this->btnB = (gcnew System::Windows::Forms::Button());
+			this->btnC = (gcnew System::Windows::Forms::Button());
+			this->btnD = (gcnew System::Windows::Forms::Button());
+			this->btnA = (gcnew System::Windows::Forms::Button());
 			this->btnMODE_HEX = (gcnew System::Windows::Forms::RadioButton());
 			this->btnMODE_DEC = (gcnew System::Windows::Forms::RadioButton());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -183,12 +195,18 @@ namespace Calculator {
 			this->tabCTRL->Location = System::Drawing::Point(-2, -2);
 			this->tabCTRL->Name = L"tabCTRL";
 			this->tabCTRL->SelectedIndex = 0;
-			this->tabCTRL->Size = System::Drawing::Size(427, 484);
+			this->tabCTRL->Size = System::Drawing::Size(427, 524);
 			this->tabCTRL->TabIndex = 46;
 			this->tabCTRL->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm2::switchTab);
 			// 
 			// tabPage1
 			// 
+			this->tabPage1->Controls->Add(this->btnF);
+			this->tabPage1->Controls->Add(this->btnE);
+			this->tabPage1->Controls->Add(this->btnB);
+			this->tabPage1->Controls->Add(this->btnC);
+			this->tabPage1->Controls->Add(this->btnD);
+			this->tabPage1->Controls->Add(this->btnA);
 			this->tabPage1->Controls->Add(this->btnMODE_HEX);
 			this->tabPage1->Controls->Add(this->btnMODE_DEC);
 			this->tabPage1->Controls->Add(this->label1);
@@ -226,10 +244,88 @@ namespace Calculator {
 			this->tabPage1->Location = System::Drawing::Point(4, 24);
 			this->tabPage1->Name = L"tabPage1";
 			this->tabPage1->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage1->Size = System::Drawing::Size(419, 456);
+			this->tabPage1->Size = System::Drawing::Size(419, 496);
 			this->tabPage1->TabIndex = 0;
 			this->tabPage1->Text = L"QINT";
 			this->tabPage1->UseVisualStyleBackColor = true;
+			// 
+			// btnF
+			// 
+			this->btnF->Enabled = false;
+			this->btnF->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnF->Location = System::Drawing::Point(348, 196);
+			this->btnF->Name = L"btnF";
+			this->btnF->Size = System::Drawing::Size(60, 35);
+			this->btnF->TabIndex = 84;
+			this->btnF->Text = L"F";
+			this->btnF->UseVisualStyleBackColor = true;
+			this->btnF->Click += gcnew System::EventHandler(this, &MyForm2::button_Click);
+			// 
+			// btnE
+			// 
+			this->btnE->Enabled = false;
+			this->btnE->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnE->Location = System::Drawing::Point(281, 196);
+			this->btnE->Name = L"btnE";
+			this->btnE->Size = System::Drawing::Size(60, 35);
+			this->btnE->TabIndex = 83;
+			this->btnE->Text = L"E";
+			this->btnE->UseVisualStyleBackColor = true;
+			this->btnE->Click += gcnew System::EventHandler(this, &MyForm2::button_Click);
+			// 
+			// btnB
+			// 
+			this->btnB->Enabled = false;
+			this->btnB->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnB->Location = System::Drawing::Point(77, 196);
+			this->btnB->Name = L"btnB";
+			this->btnB->Size = System::Drawing::Size(60, 35);
+			this->btnB->TabIndex = 82;
+			this->btnB->Text = L"B";
+			this->btnB->UseVisualStyleBackColor = true;
+			this->btnB->Click += gcnew System::EventHandler(this, &MyForm2::button_Click);
+			// 
+			// btnC
+			// 
+			this->btnC->Enabled = false;
+			this->btnC->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnC->Location = System::Drawing::Point(143, 196);
+			this->btnC->Name = L"btnC";
+			this->btnC->Size = System::Drawing::Size(60, 35);
+			this->btnC->TabIndex = 81;
+			this->btnC->Text = L"C";
+			this->btnC->UseVisualStyleBackColor = true;
+			this->btnC->Click += gcnew System::EventHandler(this, &MyForm2::button_Click);
+			// 
+			// btnD
+			// 
+			this->btnD->Enabled = false;
+			this->btnD->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnD->Location = System::Drawing::Point(215, 196);
+			this->btnD->Name = L"btnD";
+			this->btnD->Size = System::Drawing::Size(60, 35);
+			this->btnD->TabIndex = 80;
+			this->btnD->Text = L"D";
+			this->btnD->UseVisualStyleBackColor = true;
+			this->btnD->Click += gcnew System::EventHandler(this, &MyForm2::button_Click);
+			// 
+			// btnA
+			// 
+			this->btnA->Enabled = false;
+			this->btnA->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnA->Location = System::Drawing::Point(11, 196);
+			this->btnA->Name = L"btnA";
+			this->btnA->Size = System::Drawing::Size(60, 35);
+			this->btnA->TabIndex = 79;
+			this->btnA->Text = L"A";
+			this->btnA->UseVisualStyleBackColor = true;
+			this->btnA->Click += gcnew System::EventHandler(this, &MyForm2::button_Click);
 			// 
 			// btnMODE_HEX
 			// 
@@ -282,10 +378,10 @@ namespace Calculator {
 			// 
 			this->txtDisplay->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->txtDisplay->Location = System::Drawing::Point(-1, 30);
+			this->txtDisplay->Location = System::Drawing::Point(1, 30);
 			this->txtDisplay->Multiline = true;
 			this->txtDisplay->Name = L"txtDisplay";
-			this->txtDisplay->Size = System::Drawing::Size(421, 97);
+			this->txtDisplay->Size = System::Drawing::Size(417, 97);
 			this->txtDisplay->TabIndex = 46;
 			this->txtDisplay->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
 			// 
@@ -293,7 +389,7 @@ namespace Calculator {
 			// 
 			this->btnSHIFT_LEFT->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnSHIFT_LEFT->Location = System::Drawing::Point(335, 153);
+			this->btnSHIFT_LEFT->Location = System::Drawing::Point(333, 155);
 			this->btnSHIFT_LEFT->Name = L"btnSHIFT_LEFT";
 			this->btnSHIFT_LEFT->Size = System::Drawing::Size(75, 35);
 			this->btnSHIFT_LEFT->TabIndex = 74;
@@ -305,7 +401,7 @@ namespace Calculator {
 			// 
 			this->btnROR->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnROR->Location = System::Drawing::Point(349, 260);
+			this->btnROR->Location = System::Drawing::Point(349, 299);
 			this->btnROR->Name = L"btnROR";
 			this->btnROR->Size = System::Drawing::Size(60, 60);
 			this->btnROR->TabIndex = 73;
@@ -317,7 +413,7 @@ namespace Calculator {
 			// 
 			this->btnAND->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnAND->Location = System::Drawing::Point(281, 195);
+			this->btnAND->Location = System::Drawing::Point(281, 234);
 			this->btnAND->Name = L"btnAND";
 			this->btnAND->Size = System::Drawing::Size(60, 60);
 			this->btnAND->TabIndex = 72;
@@ -329,7 +425,7 @@ namespace Calculator {
 			// 
 			this->btnOR->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnOR->Location = System::Drawing::Point(281, 260);
+			this->btnOR->Location = System::Drawing::Point(281, 299);
 			this->btnOR->Name = L"btnOR";
 			this->btnOR->Size = System::Drawing::Size(60, 60);
 			this->btnOR->TabIndex = 71;
@@ -341,7 +437,7 @@ namespace Calculator {
 			// 
 			this->btnXOR->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnXOR->Location = System::Drawing::Point(281, 325);
+			this->btnXOR->Location = System::Drawing::Point(281, 364);
 			this->btnXOR->Name = L"btnXOR";
 			this->btnXOR->Size = System::Drawing::Size(60, 60);
 			this->btnXOR->TabIndex = 70;
@@ -353,7 +449,7 @@ namespace Calculator {
 			// 
 			this->btnNOT->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnNOT->Location = System::Drawing::Point(281, 391);
+			this->btnNOT->Location = System::Drawing::Point(281, 430);
 			this->btnNOT->Name = L"btnNOT";
 			this->btnNOT->Size = System::Drawing::Size(60, 60);
 			this->btnNOT->TabIndex = 69;
@@ -376,7 +472,7 @@ namespace Calculator {
 			// 
 			this->btnSHIFT_RIGHT->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnSHIFT_RIGHT->Location = System::Drawing::Point(254, 153);
+			this->btnSHIFT_RIGHT->Location = System::Drawing::Point(252, 155);
 			this->btnSHIFT_RIGHT->Name = L"btnSHIFT_RIGHT";
 			this->btnSHIFT_RIGHT->Size = System::Drawing::Size(75, 35);
 			this->btnSHIFT_RIGHT->TabIndex = 67;
@@ -388,7 +484,7 @@ namespace Calculator {
 			// 
 			this->btnROL->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnROL->Location = System::Drawing::Point(349, 325);
+			this->btnROL->Location = System::Drawing::Point(349, 364);
 			this->btnROL->Name = L"btnROL";
 			this->btnROL->Size = System::Drawing::Size(60, 60);
 			this->btnROL->TabIndex = 66;
@@ -400,7 +496,7 @@ namespace Calculator {
 			// 
 			this->btnDiv->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnDiv->Location = System::Drawing::Point(215, 391);
+			this->btnDiv->Location = System::Drawing::Point(215, 430);
 			this->btnDiv->Name = L"btnDiv";
 			this->btnDiv->Size = System::Drawing::Size(60, 60);
 			this->btnDiv->TabIndex = 65;
@@ -412,7 +508,7 @@ namespace Calculator {
 			// 
 			this->btnAdd->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnAdd->Location = System::Drawing::Point(215, 195);
+			this->btnAdd->Location = System::Drawing::Point(215, 234);
 			this->btnAdd->Name = L"btnAdd";
 			this->btnAdd->Size = System::Drawing::Size(60, 60);
 			this->btnAdd->TabIndex = 64;
@@ -424,7 +520,7 @@ namespace Calculator {
 			// 
 			this->btnSub->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnSub->Location = System::Drawing::Point(215, 260);
+			this->btnSub->Location = System::Drawing::Point(215, 299);
 			this->btnSub->Name = L"btnSub";
 			this->btnSub->Size = System::Drawing::Size(60, 60);
 			this->btnSub->TabIndex = 63;
@@ -436,7 +532,7 @@ namespace Calculator {
 			// 
 			this->btnMul->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnMul->Location = System::Drawing::Point(215, 325);
+			this->btnMul->Location = System::Drawing::Point(215, 364);
 			this->btnMul->Name = L"btnMul";
 			this->btnMul->Size = System::Drawing::Size(60, 60);
 			this->btnMul->TabIndex = 62;
@@ -448,7 +544,7 @@ namespace Calculator {
 			// 
 			this->btnHEX->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnHEX->Location = System::Drawing::Point(92, 153);
+			this->btnHEX->Location = System::Drawing::Point(90, 155);
 			this->btnHEX->Name = L"btnHEX";
 			this->btnHEX->Size = System::Drawing::Size(75, 35);
 			this->btnHEX->TabIndex = 61;
@@ -461,7 +557,7 @@ namespace Calculator {
 			this->btnDEC->Enabled = false;
 			this->btnDEC->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnDEC->Location = System::Drawing::Point(173, 153);
+			this->btnDEC->Location = System::Drawing::Point(171, 155);
 			this->btnDEC->Name = L"btnDEC";
 			this->btnDEC->Size = System::Drawing::Size(75, 35);
 			this->btnDEC->TabIndex = 60;
@@ -473,7 +569,7 @@ namespace Calculator {
 			// 
 			this->btnBIN->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnBIN->Location = System::Drawing::Point(11, 153);
+			this->btnBIN->Location = System::Drawing::Point(9, 155);
 			this->btnBIN->Name = L"btnBIN";
 			this->btnBIN->Size = System::Drawing::Size(75, 35);
 			this->btnBIN->TabIndex = 59;
@@ -485,7 +581,7 @@ namespace Calculator {
 			// 
 			this->btnClear->Font = (gcnew System::Drawing::Font(L"Consolas", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnClear->Location = System::Drawing::Point(349, 391);
+			this->btnClear->Location = System::Drawing::Point(349, 430);
 			this->btnClear->Name = L"btnClear";
 			this->btnClear->Size = System::Drawing::Size(60, 60);
 			this->btnClear->TabIndex = 58;
@@ -497,7 +593,7 @@ namespace Calculator {
 			// 
 			this->button14->Font = (gcnew System::Drawing::Font(L"Wingdings", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(2)));
-			this->button14->Location = System::Drawing::Point(349, 195);
+			this->button14->Location = System::Drawing::Point(349, 234);
 			this->button14->Name = L"button14";
 			this->button14->Size = System::Drawing::Size(60, 60);
 			this->button14->TabIndex = 57;
@@ -509,7 +605,7 @@ namespace Calculator {
 			// 
 			this->btnResult->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btnResult->Location = System::Drawing::Point(143, 391);
+			this->btnResult->Location = System::Drawing::Point(143, 430);
 			this->btnResult->Name = L"btnResult";
 			this->btnResult->Size = System::Drawing::Size(60, 60);
 			this->btnResult->TabIndex = 56;
@@ -521,7 +617,7 @@ namespace Calculator {
 			// 
 			this->btn0->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btn0->Location = System::Drawing::Point(11, 391);
+			this->btn0->Location = System::Drawing::Point(11, 430);
 			this->btn0->Name = L"btn0";
 			this->btn0->Size = System::Drawing::Size(126, 59);
 			this->btn0->TabIndex = 55;
@@ -533,7 +629,7 @@ namespace Calculator {
 			// 
 			this->btn8->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btn8->Location = System::Drawing::Point(77, 195);
+			this->btn8->Location = System::Drawing::Point(77, 234);
 			this->btn8->Name = L"btn8";
 			this->btn8->Size = System::Drawing::Size(60, 60);
 			this->btn8->TabIndex = 54;
@@ -545,7 +641,7 @@ namespace Calculator {
 			// 
 			this->btn9->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btn9->Location = System::Drawing::Point(143, 195);
+			this->btn9->Location = System::Drawing::Point(143, 234);
 			this->btn9->Name = L"btn9";
 			this->btn9->Size = System::Drawing::Size(60, 60);
 			this->btn9->TabIndex = 53;
@@ -557,7 +653,7 @@ namespace Calculator {
 			// 
 			this->btn7->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btn7->Location = System::Drawing::Point(11, 195);
+			this->btn7->Location = System::Drawing::Point(11, 234);
 			this->btn7->Name = L"btn7";
 			this->btn7->Size = System::Drawing::Size(60, 60);
 			this->btn7->TabIndex = 52;
@@ -569,7 +665,7 @@ namespace Calculator {
 			// 
 			this->btn5->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btn5->Location = System::Drawing::Point(77, 260);
+			this->btn5->Location = System::Drawing::Point(77, 299);
 			this->btn5->Name = L"btn5";
 			this->btn5->Size = System::Drawing::Size(60, 60);
 			this->btn5->TabIndex = 51;
@@ -581,7 +677,7 @@ namespace Calculator {
 			// 
 			this->btn6->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btn6->Location = System::Drawing::Point(143, 260);
+			this->btn6->Location = System::Drawing::Point(143, 299);
 			this->btn6->Name = L"btn6";
 			this->btn6->Size = System::Drawing::Size(60, 60);
 			this->btn6->TabIndex = 50;
@@ -593,7 +689,7 @@ namespace Calculator {
 			// 
 			this->btn4->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btn4->Location = System::Drawing::Point(11, 260);
+			this->btn4->Location = System::Drawing::Point(11, 299);
 			this->btn4->Name = L"btn4";
 			this->btn4->Size = System::Drawing::Size(60, 60);
 			this->btn4->TabIndex = 49;
@@ -605,7 +701,7 @@ namespace Calculator {
 			// 
 			this->btn2->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btn2->Location = System::Drawing::Point(77, 325);
+			this->btn2->Location = System::Drawing::Point(77, 364);
 			this->btn2->Name = L"btn2";
 			this->btn2->Size = System::Drawing::Size(60, 60);
 			this->btn2->TabIndex = 48;
@@ -617,7 +713,7 @@ namespace Calculator {
 			// 
 			this->btn3->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btn3->Location = System::Drawing::Point(143, 325);
+			this->btn3->Location = System::Drawing::Point(143, 364);
 			this->btn3->Name = L"btn3";
 			this->btn3->Size = System::Drawing::Size(60, 60);
 			this->btn3->TabIndex = 47;
@@ -629,7 +725,7 @@ namespace Calculator {
 			// 
 			this->btn1->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->btn1->Location = System::Drawing::Point(11, 325);
+			this->btn1->Location = System::Drawing::Point(11, 364);
 			this->btn1->Name = L"btn1";
 			this->btn1->Size = System::Drawing::Size(60, 60);
 			this->btn1->TabIndex = 45;
@@ -662,7 +758,7 @@ namespace Calculator {
 			this->tabPage2->Location = System::Drawing::Point(4, 24);
 			this->tabPage2->Name = L"tabPage2";
 			this->tabPage2->Padding = System::Windows::Forms::Padding(3);
-			this->tabPage2->Size = System::Drawing::Size(419, 456);
+			this->tabPage2->Size = System::Drawing::Size(419, 496);
 			this->tabPage2->TabIndex = 1;
 			this->tabPage2->Text = L"QFLOAT";
 			this->tabPage2->UseVisualStyleBackColor = true;
@@ -892,10 +988,10 @@ namespace Calculator {
 			// 
 			this->textBoxFloat->Font = (gcnew System::Drawing::Font(L"Consolas", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBoxFloat->Location = System::Drawing::Point(0, 20);
+			this->textBoxFloat->Location = System::Drawing::Point(2, 20);
 			this->textBoxFloat->Multiline = true;
 			this->textBoxFloat->Name = L"textBoxFloat";
-			this->textBoxFloat->Size = System::Drawing::Size(419, 114);
+			this->textBoxFloat->Size = System::Drawing::Size(415, 114);
 			this->textBoxFloat->TabIndex = 47;
 			this->textBoxFloat->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
 			// 
@@ -903,10 +999,15 @@ namespace Calculator {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(422, 478);
+			this->ClientSize = System::Drawing::Size(422, 520);
 			this->Controls->Add(this->tabCTRL);
+			this->MaximizeBox = false;
+			this->MaximumSize = System::Drawing::Size(438, 559);
+			this->MinimizeBox = false;
+			this->MinimumSize = System::Drawing::Size(438, 559);
 			this->Name = L"MyForm2";
-			this->Text = L"MyForm2";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->Text = L"1753107_1753";
 			this->tabCTRL->ResumeLayout(false);
 			this->tabPage1->ResumeLayout(false);
 			this->tabPage1->PerformLayout();
@@ -926,11 +1027,7 @@ namespace Calculator {
 	QINT* QRes;
 	QFloat* Float;
 	int mode = 10;
-	/*private: System::Void tabPage2_Click(System::Object^  sender, System::EventArgs^  e) {
 
-	}
-	private: System::Void tabPage1_Click(System::Object^  sender, System::EventArgs^  e) {
-	}*/
 	//btnMODE_DEC
 
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
@@ -978,7 +1075,7 @@ namespace Calculator {
 				txtDisplay->Text = "";
 				iOperator = op->Text;
 				lbShowOp->Text = msclr::interop::marshal_as<System::String^>(Q1->toDec()) + " " + iOperator;
-			}
+		}
 	}
 	private: System::Void btnResult_Click(System::Object^  sender, System::EventArgs^  e) {
 		lbShowOp->Text = "";
@@ -1005,8 +1102,12 @@ namespace Calculator {
 			txtDisplay->Text = str;
 			delete Q2;
 			delete QRes;
-			if (Q1)
+			QRes = NULL;
+			Q2 = NULL;
+			if (Q1) {
 				delete Q1;
+				Q1 = NULL;
+			}
 			iOperator = "";
 		}
 		else if (iOperator == "-") {
@@ -1031,8 +1132,12 @@ namespace Calculator {
 			txtDisplay->Text = str;
 			delete Q2;
 			delete QRes;
-			if (Q1)
+			QRes = NULL;
+			Q2 = NULL;
+			if (Q1) {
 				delete Q1;
+				Q1 = NULL;
+			}
 			iOperator = "";
 		}
 		else if (iOperator == "*") {
@@ -1057,8 +1162,12 @@ namespace Calculator {
 			txtDisplay->Text = str;
 			delete Q2;
 			delete QRes;
-			if (Q1)
+			QRes = NULL;
+			Q2 = NULL;
+			if (Q1) {
 				delete Q1;
+				Q1 = NULL;
+			}
 			iOperator = "";
 		}
 		else if (iOperator == "/") {
@@ -1083,8 +1192,12 @@ namespace Calculator {
 			txtDisplay->Text = str;
 			delete Q2;
 			delete QRes;
-			if (Q1)
+			QRes = NULL;
+			Q2 = NULL;
+			if (Q1) {
 				delete Q1;
+				Q1 = NULL;
+			}
 			iOperator = "";
 		}
 		else if (iOperator == ">>") {
@@ -1104,8 +1217,10 @@ namespace Calculator {
 			}
 			txtDisplay->Text = str;
 			delete QRes;
-			if (Q1)
-				delete Q1;
+			QRes = NULL;
+			if (Q1) {
+				delete Q1; Q1 = NULL;
+			}
 			a = 0;
 			iOperator = "";
 		}
@@ -1126,8 +1241,10 @@ namespace Calculator {
 			}
 			txtDisplay->Text = str;
 			delete QRes;
-			if (Q1)
-				delete Q1;
+			QRes = NULL;
+			if (Q1) {
+				delete Q1; Q1 = NULL;
+			}
 			a = 0;
 			iOperator = "";
 		}
@@ -1153,8 +1270,12 @@ namespace Calculator {
 			txtDisplay->Text = str;
 			delete Q2;
 			delete QRes;
-			if (Q1)
+			QRes = NULL;
+			Q2 = NULL;
+			if (Q1) {
 				delete Q1;
+				Q1 = NULL;
+			}
 			iOperator = "";
 
 		}
@@ -1180,8 +1301,12 @@ namespace Calculator {
 			txtDisplay->Text = str;
 			delete Q2;
 			delete QRes;
-			if (Q1)
+			QRes = NULL;
+			Q2 = NULL;
+			if (Q1) {
 				delete Q1;
+				Q1 = NULL;
+			}
 			iOperator = "";
 		}
 		else if (iOperator == "OR") {
@@ -1206,7 +1331,12 @@ namespace Calculator {
 			txtDisplay->Text = str;
 			delete Q2;
 			delete QRes;
-			if (Q1) delete Q1;
+			QRes = NULL;
+			Q2 = NULL;
+			if (Q1) {
+				delete Q1;
+				Q1 = NULL;
+			}
 			iOperator = "";
 		}
 		else if (iOperator == "ROR") {
@@ -1226,7 +1356,10 @@ namespace Calculator {
 			}
 			txtDisplay->Text = str;
 			delete QRes;
-			if (Q1) delete Q1;
+			QRes = NULL;
+			if (Q1) {
+				delete Q1; Q1 = NULL;
+			}
 			iOperator = "";
 		}
 		else if (iOperator == "ROL") {
@@ -1246,7 +1379,10 @@ namespace Calculator {
 			}
 			txtDisplay->Text = str;
 			delete QRes;
-			if (Q1) delete Q1;
+			QRes = NULL;
+			if (Q1) {
+				delete Q1; Q1 = NULL;
+			}
 			iOperator = "";
 		}
 	}
@@ -1257,31 +1393,63 @@ namespace Calculator {
 	}
 	private: System::Void btnBIN_Click(System::Object^  sender, System::EventArgs^  e) {
 		if (txtDisplay->Text != ""&& txtDisplay->Text != "-") {
-			QRes = new QINT(msclr::interop::marshal_as<std::string>(txtDisplay->Text));
-			txtDisplay->Text = msclr::interop::marshal_as<System::String^>(bool2Str(QRes->data2Bin()));
+			if (mode == 10) {
+				QRes = new QINT(msclr::interop::marshal_as<std::string>(txtDisplay->Text));
+				txtDisplay->Text = msclr::interop::marshal_as<System::String^>(bool2Str(QRes->data2Bin()));
+			}
+			else {
+				QRes = new QINT(hex2Bin(msclr::interop::marshal_as<std::string>(txtDisplay->Text)));
+				txtDisplay->Text = msclr::interop::marshal_as<System::String^>(bool2Str(QRes->data2Bin()));
+			}
 			lbShowOp->Text = "";
 			delete QRes;
-			if (Q1) delete Q1;
+			QRes = NULL;
+			if (Q1) {
+				delete Q1;
+				Q1 = NULL;
+			}
 		}
 	}
 	private: System::Void btnHEX_Click(System::Object^  sender, System::EventArgs^  e) {
 		if (txtDisplay->Text != ""&& txtDisplay->Text != "-") {
-			QRes = new QINT(msclr::interop::marshal_as<std::string>(txtDisplay->Text));
-			txtDisplay->Text = msclr::interop::marshal_as<System::String^>(bin2Hex(QRes->data2Bin()));
+			if (mode == 10) {
+				QRes = new QINT(msclr::interop::marshal_as<std::string>(txtDisplay->Text));
+				txtDisplay->Text = msclr::interop::marshal_as<System::String^>(bin2Hex(QRes->data2Bin()));
+			}
+			else {
+				bool *temp = str2Bool(msclr::interop::marshal_as<std::string>(txtDisplay->Text));
+				QRes = new QINT(temp);
+				delete[]temp;
+				txtDisplay->Text = msclr::interop::marshal_as<System::String^>(bin2Hex(QRes->data2Bin()));
+			}
 			lbShowOp->Text = "";
 			delete QRes;
-			if (Q1) delete Q1;
+			QRes = NULL;
+			if (Q1) {
+				delete Q1;
+				Q1 = NULL;
+			}
 		}
 	}
 	private: System::Void btnDEC_Click(System::Object^  sender, System::EventArgs^  e) {
 		if (txtDisplay->Text != ""&& txtDisplay->Text !="-") {
-			bool*temp = str2Bool(msclr::interop::marshal_as<std::string>(txtDisplay->Text));
-			QRes = new QINT(temp);
-			txtDisplay->Text = msclr::interop::marshal_as<System::String^>(QRes->toDec());
+			if (mode == 16) {
+				QRes = new QINT(hex2Bin(msclr::interop::marshal_as<std::string>(txtDisplay->Text)));
+				txtDisplay->Text = msclr::interop::marshal_as<System::String^>(QRes->toDec());
+			}
+			else {
+				bool *temp = str2Bool(msclr::interop::marshal_as<std::string>(txtDisplay->Text));
+				QRes = new QINT(temp);
+				delete[]temp;
+				txtDisplay->Text = msclr::interop::marshal_as<System::String^>(QRes->toDec());
+			}
 			lbShowOp->Text = "";
-			delete[]temp;
 			delete QRes;
-			if (Q1) delete Q1;
+			QRes = NULL;
+			if (Q1) {
+				delete Q1;
+				Q1 = NULL;
+			}
 		}
 	}
 	private: System::Void btnNOT_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -1290,6 +1458,8 @@ namespace Calculator {
 			*QRes = ~*QRes;
 			txtDisplay->Text = msclr::interop::marshal_as<System::String^>(QRes->toDec());
 			lbShowOp->Text = "";
+			delete QRes;
+			QRes = NULL;
 		}
 	}
 
@@ -1297,18 +1467,36 @@ private: System::Void btnMODE_BIN_CheckedChanged(System::Object^  sender, System
 	btnBIN->Enabled = FALSE;
 	btnDEC->Enabled = TRUE;
 	btnHEX->Enabled = TRUE;
+	btnA->Enabled = FALSE;
+	btnB->Enabled = FALSE;
+	btnC->Enabled = FALSE;
+	btnD->Enabled = FALSE;
+	btnE->Enabled = FALSE;
+	btnF->Enabled = FALSE;
 	mode = 2;
 }
 private: System::Void btnMODE_HEX_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 	btnBIN->Enabled = TRUE;
 	btnDEC->Enabled = TRUE;
 	btnHEX->Enabled = FALSE;
-	mode = 6;
+	btnA->Enabled = TRUE;
+	btnB->Enabled = TRUE;
+	btnC->Enabled = TRUE;
+	btnD->Enabled = TRUE;
+	btnE->Enabled = TRUE;
+	btnF->Enabled = TRUE;
+	mode = 16;
 }
 private: System::Void btnMODE_DEC_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 	btnBIN->Enabled = TRUE;
 	btnDEC->Enabled = FALSE;
 	btnHEX->Enabled = TRUE;
+	btnA->Enabled = FALSE;
+	btnB->Enabled = FALSE;
+	btnC->Enabled = FALSE;
+	btnD->Enabled = FALSE;
+	btnE->Enabled = FALSE;
+	btnF->Enabled = FALSE;
 	mode = 10;
 }
 private: System::Void switchTab(System::Object^  sender, System::EventArgs^  e) {
