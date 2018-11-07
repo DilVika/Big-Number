@@ -657,6 +657,7 @@ namespace Calculator {
 			txtDisplay->Text = msclr::interop::marshal_as<System::String^>(QRes->toDec());
 			delete QRes;
 			delete Q1;
+			a = 0;
 			iOperator = "";
 		}
 		else if (iOperator == "<<") {
@@ -665,6 +666,7 @@ namespace Calculator {
 			txtDisplay->Text = msclr::interop::marshal_as<System::String^>(QRes->toDec());
 			delete QRes;
 			delete Q1;
+			a = 0;
 			iOperator = "";
 		}
 		else if (iOperator == "AND") {
