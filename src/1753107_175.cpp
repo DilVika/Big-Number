@@ -5,7 +5,7 @@ int main(int argc, char ** argv) {
 		AutoTest(argv[1], argv[2]);
 		return 0;
 	}
-	QINT a,b;
+	/*QINT a,b;
 	QINT *res = new QINT;
 	a.input();
 	//b.input();
@@ -14,7 +14,10 @@ int main(int argc, char ** argv) {
 	cout << "Bin = " << bool2Str(res->data2Bin()) << endl;
 	cout << "Dec = " << res->toDec() << endl;
 	cout << "Hex = " << bin2Hex(res->data2Bin()) << endl;
-
+	*/
+	QFloat a;
+	a.input();
+	cout << "Bin = " << bool2Str(a.data2Bin()) << endl;
 	system("pause");
 	return 0;
 }

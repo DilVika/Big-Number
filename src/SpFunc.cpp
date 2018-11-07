@@ -31,7 +31,6 @@ bool* decToBin(uint64_t n) {
 bool* dec2BinExpo(uint16_t n) {
 	bool* a = new bool[15];
 	int index = 0;
-
 	for (int i = 14; i >= 0; i--) {
 		a[i] = (n >> index) & 1;
 		index++;

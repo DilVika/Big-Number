@@ -1,7 +1,5 @@
 ﻿#include "MyForm.h"
 
-//#include"QINT.h"
-//#include"QFloat.h"
 using namespace System;
 using namespace System::Windows::Forms;
 using namespace System::Runtime::InteropServices;
@@ -22,6 +20,7 @@ void Main(array<String^>^ args) {
 	QINT Q1,Q2,Qres;
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
-	Calculator::MyForm form;
+	Calculator::MyForm2 form;
+	//Calculator::MyForm1 form1;
 	Application::Run(%form);
 }
