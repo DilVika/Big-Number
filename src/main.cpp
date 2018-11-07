@@ -6,12 +6,12 @@ int main() {
 	QINT a,b,c;
 	a.input();
 	b.input();
+
+	c = a + b;
 	
 
-	c = a/b;
-	c.output();
 
-	cout << a.toDec();
+	cout << c.toDec() << endl;
 
 	system("pause");
 	return 1;

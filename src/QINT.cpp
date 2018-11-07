@@ -332,8 +332,8 @@ string QINT::toDec()
 	string result;
 	bool isNegative = (this->data[0] >>( (bit/2) -1) & 1);
 
-	int64_t high = this->data[0];
-	int64_t low = this->data[1];
+	uint64_t high = this->data[0];
+	uint64_t low = this->data[1];
 	if (isNegative == 1)
 	{
 		high = this->OffSet2().data[0];
