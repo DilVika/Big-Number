@@ -8,16 +8,17 @@ using namespace System::Runtime::InteropServices;
 [STAThreadAttribute]
 
 void Main(array<String^>^ args) {
+	// check argument 
 	if (args->Length == 2) {
 		IntPtr ptrToNativeString = Marshal::StringToHGlobalAnsi(args[0]);
 		char* a1 = static_cast<char*>(ptrToNativeString.ToPointer());
 		ptrToNativeString = Marshal::StringToHGlobalAnsi(args[1]);
 		char* a2 = static_cast<char*>(ptrToNativeString.ToPointer());
+		// call function test by argument
 		AutoTest(a1, a2);
 		return ;
 	}
-	//std::string unmanaged = msclr::interop::marshal_as<std::string>(managed);
-	//gcnew String(orig.c_str()) string to string^
+	// Case don't use argument, use Winform UI
 	QINT Q1,Q2,Qres;
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);

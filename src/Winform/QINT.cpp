@@ -307,7 +307,7 @@ QINT ror(const QINT &Q, int n) {
 }
 
 // assignment
-QINT & QINT::operator=(const QINT & Q) {
+QINT& QINT::operator=(const QINT & Q) {
 	this->data[0] = Q.data[0];
 	this->data[1] = Q.data[1];
 	return *this;

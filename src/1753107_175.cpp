@@ -10,7 +10,7 @@ int main(int argc, char ** argv) {
 	a.input();
 	//b.input();
 
-	*res = ror (a ,1);
+	*res = a << 1;
 	cout << "Bin = " << bool2Str(res->data2Bin()) << endl;
 	cout << "Dec = " << res->toDec() << endl;
 	cout << "Hex = " << bin2Hex(res->data2Bin()) << endl;
