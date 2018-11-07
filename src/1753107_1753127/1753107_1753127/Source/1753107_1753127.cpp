@@ -21,5 +21,6 @@ void Main(array<String^>^ args) {
 	Application::EnableVisualStyles();
 	Application::SetCompatibleTextRenderingDefault(false);
 	Calculator::MyForm2 form;
+	//Calculator::MyForm1 form1;
 	Application::Run(%form);
 }

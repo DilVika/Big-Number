@@ -1007,7 +1007,7 @@ namespace Calculator {
 			this->MinimumSize = System::Drawing::Size(438, 559);
 			this->Name = L"MyForm2";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"1753107_1753";
+			this->Text = L"1753107_1753127";
 			this->tabCTRL->ResumeLayout(false);
 			this->tabPage1->ResumeLayout(false);
 			this->tabPage1->PerformLayout();
