@@ -275,6 +275,7 @@ namespace Calculator {
 			this->btnHEX->TabIndex = 18;
 			this->btnHEX->Text = L"Hex";
 			this->btnHEX->UseVisualStyleBackColor = true;
+			this->btnHEX->Click += gcnew System::EventHandler(this, &MyForm::btnHEX_Click);
 			// 
 			// btnDEC
 			// 
@@ -286,6 +287,7 @@ namespace Calculator {
 			this->btnDEC->TabIndex = 17;
 			this->btnDEC->Text = L"Dec";
 			this->btnDEC->UseVisualStyleBackColor = true;
+			this->btnDEC->Click += gcnew System::EventHandler(this, &MyForm::btnDEC_Click);
 			// 
 			// btnBIN
 			// 
@@ -357,6 +359,7 @@ namespace Calculator {
 			this->btnSHIFT_RIGHT->TabIndex = 31;
 			this->btnSHIFT_RIGHT->Text = L">>";
 			this->btnSHIFT_RIGHT->UseVisualStyleBackColor = true;
+			this->btnSHIFT_RIGHT->Click += gcnew System::EventHandler(this, &MyForm::Math_Operator);
 			// 
 			// btnROL
 			// 
@@ -368,6 +371,7 @@ namespace Calculator {
 			this->btnROL->TabIndex = 29;
 			this->btnROL->Text = L"ROL";
 			this->btnROL->UseVisualStyleBackColor = true;
+			this->btnROL->Click += gcnew System::EventHandler(this, &MyForm::Math_Operator);
 			// 
 			// btnDiv
 			// 
@@ -447,6 +451,7 @@ namespace Calculator {
 			this->btnNOT->TabIndex = 34;
 			this->btnNOT->Text = L"NOT";
 			this->btnNOT->UseVisualStyleBackColor = true;
+			this->btnNOT->Click += gcnew System::EventHandler(this, &MyForm::btnNOT_Click);
 			// 
 			// btnXOR
 			// 
@@ -458,6 +463,7 @@ namespace Calculator {
 			this->btnXOR->TabIndex = 35;
 			this->btnXOR->Text = L"XOR";
 			this->btnXOR->UseVisualStyleBackColor = true;
+			this->btnXOR->Click += gcnew System::EventHandler(this, &MyForm::Math_Operator);
 			// 
 			// btnOR
 			// 
@@ -469,6 +475,7 @@ namespace Calculator {
 			this->btnOR->TabIndex = 36;
 			this->btnOR->Text = L"OR";
 			this->btnOR->UseVisualStyleBackColor = true;
+			this->btnOR->Click += gcnew System::EventHandler(this, &MyForm::Math_Operator);
 			// 
 			// btnAND
 			// 
@@ -480,6 +487,7 @@ namespace Calculator {
 			this->btnAND->TabIndex = 37;
 			this->btnAND->Text = L"AND";
 			this->btnAND->UseVisualStyleBackColor = true;
+			this->btnAND->Click += gcnew System::EventHandler(this, &MyForm::Math_Operator);
 			// 
 			// btnROR
 			// 
@@ -491,6 +499,7 @@ namespace Calculator {
 			this->btnROR->TabIndex = 38;
 			this->btnROR->Text = L"ROR";
 			this->btnROR->UseVisualStyleBackColor = true;
+			this->btnROR->Click += gcnew System::EventHandler(this, &MyForm::Math_Operator);
 			// 
 			// btnSHIFT_LEFT
 			// 
@@ -502,6 +511,7 @@ namespace Calculator {
 			this->btnSHIFT_LEFT->TabIndex = 39;
 			this->btnSHIFT_LEFT->Text = L"<<";
 			this->btnSHIFT_LEFT->UseVisualStyleBackColor = true;
+			this->btnSHIFT_LEFT->Click += gcnew System::EventHandler(this, &MyForm::Math_Operator);
 			// 
 			// MyForm
 			// 
@@ -549,7 +559,7 @@ namespace Calculator {
 		double iFirstnum;
 		double iSecondnum;
 		double iResult;
-		double a;
+		int a;
 		String^ iOperator;
 		char iOperation;
 		QINT* Q1 ;
@@ -570,6 +580,7 @@ namespace Calculator {
 	}
 	private: System::Void btnClear_Click(System::Object^  sender, System::EventArgs^  e) {
 		txtDisplay->Clear();
+		lbShowOp->Text = "";
 	}
 	private: System::Void Math_Operator(System::Object^  sender, System::EventArgs^  e) {
 		Button ^ op = safe_cast<Button^>(sender);
@@ -585,50 +596,123 @@ namespace Calculator {
 	private: System::Void btnResult_Click(System::Object^  sender, System::EventArgs^  e) {
 		lbShowOp->Text = "";
 		//iSecondnum = Double::Parse(txtDisplay->Text);
-		Q2 = new QINT(msclr::interop::marshal_as<std::string>(txtDisplay->Text));
+		
 		if (iOperator == "+") {
+			Q2 = new QINT(msclr::interop::marshal_as<std::string>(txtDisplay->Text));
 			QRes = new QINT();
 			*QRes = *Q1 + *Q2;
 			txtDisplay->Text = msclr::interop::marshal_as<System::String^>(QRes->toDec());
 			delete Q2;
 			delete QRes;
 			delete Q1;
+			iOperator = "";
 			//iResult = iFirstnum + iSecondnum;
 			//txtDisplay->Text = System::Convert::ToString(iResult);
 			//listBox1->Items->Add(System::Convert::ToString(lbShowOp->Text));
 		}
 		else if (iOperator == "-") {
+			Q2 = new QINT(msclr::interop::marshal_as<std::string>(txtDisplay->Text));
 			QRes = new QINT();
 			*QRes = *Q1 - *Q2;
 			txtDisplay->Text = msclr::interop::marshal_as<System::String^>(QRes->toDec());
 			delete Q2;
 			delete QRes;
 			delete Q1;
+			iOperator = "";
 			//iResult = iFirstnum - iSecondnum;
 			//txtDisplay->Text = System::Convert::ToString(iResult);
 			//listBox1->Items->Add(System::Convert::ToString(lbShowOp->Text));
 		}
 		else if (iOperator == "*") {
+			Q2 = new QINT(msclr::interop::marshal_as<std::string>(txtDisplay->Text));
 			QRes = new QINT();
 			*QRes = *Q1 * *Q2;
 			txtDisplay->Text = msclr::interop::marshal_as<System::String^>(QRes->toDec());
 			delete Q2;
 			delete QRes;
 			delete Q1;
+			iOperator = "";
 			//iResult = iFirstnum * iSecondnum;
 			//txtDisplay->Text = System::Convert::ToString(iResult);
 			//listBox1->Items->Add(System::Convert::ToString(lbShowOp->Text));
 		}
 		else if (iOperator == "/") {
+			Q2 = new QINT(msclr::interop::marshal_as<std::string>(txtDisplay->Text));
 			QRes = new QINT();
 			*QRes = *Q1 / *Q2;
 			txtDisplay->Text = msclr::interop::marshal_as<System::String^>(QRes->toDec());
 			delete Q2;
 			delete QRes;
 			delete Q1;
+			iOperator = "";
 			//iResult = iFirstnum / iSecondnum;
 			//txtDisplay->Text = System::Convert::ToString(iResult);
 			//listBox1->Items->Add(System::Convert::ToString(lbShowOp->Text));
+		}
+		else if (iOperator == ">>") {
+			//if(!(String::IsNullOrEmpty(txtDisplay->Text)))
+			a = System::Int32::Parse(txtDisplay->Text);
+			QRes = new QINT();
+			*QRes = *Q1 >> a;
+			txtDisplay->Text = msclr::interop::marshal_as<System::String^>(QRes->toDec());
+			delete QRes;
+			delete Q1;
+			iOperator = "";
+		}
+		else if (iOperator == "<<") {
+			a = System::Int32::Parse(txtDisplay->Text);
+			*QRes = *Q1 << a;
+			txtDisplay->Text = msclr::interop::marshal_as<System::String^>(QRes->toDec());
+			delete QRes;
+			delete Q1;
+			iOperator = "";
+		}
+		else if (iOperator == "AND") {
+			Q2 = new QINT(msclr::interop::marshal_as<std::string>(txtDisplay->Text));
+			QRes = new QINT();
+			*QRes = *Q1 & *Q2;
+			txtDisplay->Text = msclr::interop::marshal_as<System::String^>(QRes->toDec());
+			delete Q2;
+			delete QRes;
+			delete Q1;
+			iOperator = "";
+
+		}
+		else if (iOperator == "XOR") {
+			Q2 = new QINT(msclr::interop::marshal_as<std::string>(txtDisplay->Text));
+			QRes = new QINT();
+			*QRes = *Q1 ^ *Q2;
+			txtDisplay->Text = msclr::interop::marshal_as<System::String^>(QRes->toDec());
+			delete Q2;
+			delete QRes;
+			delete Q1;
+			iOperator = "";
+		}
+		else if (iOperator == "OR") {
+			Q2 = new QINT(msclr::interop::marshal_as<std::string>(txtDisplay->Text));
+			QRes = new QINT();
+			*QRes = *Q1 | *Q2;
+			txtDisplay->Text = msclr::interop::marshal_as<System::String^>(QRes->toDec());
+			delete Q2;
+			delete QRes;
+			delete Q1;
+			iOperator = "";
+		}
+		else if (iOperator == "ROR"){
+			a = System::Int32::Parse(txtDisplay->Text);
+			*QRes = ror(*Q1, a);
+			txtDisplay->Text = msclr::interop::marshal_as<System::String^>(QRes->toDec());
+			delete QRes;
+			delete Q1;
+			iOperator = "";
+		}
+		else if (iOperator == "ROL") {
+			a = System::Int32::Parse(txtDisplay->Text);
+			//*QRes = rol(*Q1, a);
+			txtDisplay->Text = msclr::interop::marshal_as<System::String^>(QRes->toDec());
+			delete QRes;
+			delete Q1;
+			iOperator = "";
 		}
 	}
 			 // nút xóa
@@ -639,7 +723,39 @@ namespace Calculator {
 	}
 	private: System::Void btnBIN_Click(System::Object^  sender, System::EventArgs^  e) {
 		Temp = new QINT(msclr::interop::marshal_as<std::string>(txtDisplay->Text));
-
+		txtDisplay->Text = msclr::interop::marshal_as<System::String^>(bool2Str(Temp->data2Bin()));
+		lbShowOp->Text = "";
+		delete Temp;
+		delete Q1;
+	}
+	private: System::Void btnHEX_Click(System::Object^  sender, System::EventArgs^  e) {
+		Temp = new QINT(msclr::interop::marshal_as<std::string>(txtDisplay->Text));
+		txtDisplay->Text = msclr::interop::marshal_as<System::String^>(bin2Hex(Temp->data2Bin()));
+		lbShowOp->Text = "";
+		delete Temp;
+		delete Q1;
+	}
+	private: System::Void btnDEC_Click(System::Object^  sender, System::EventArgs^  e) {
+		bool*temp = str2Bool(msclr::interop::marshal_as<std::string>(txtDisplay->Text));
+		Temp = new QINT(temp);
+		txtDisplay->Text = msclr::interop::marshal_as<System::String^>(Temp->toDec());
+		lbShowOp->Text = "";
+		delete[]temp;
+		delete Temp;
+		delete Q1;
+	}
+	/*private: System::Void btnSHIFT_RIGHT_Click(System::Object^  sender, System::EventArgs^  e) {
+		Temp = new QINT(msclr::interop::marshal_as<std::string>(txtDisplay->Text));
+		*Temp = *Temp >> n;
+		txtDisplay->Text = msclr::interop::marshal_as<System::String^>(Temp->toDec());
+		lbShowOp->Text = "";
+		delete[]a;
+	}*/
+	private: System::Void btnNOT_Click(System::Object^  sender, System::EventArgs^  e) {
+		Temp = new QINT(msclr::interop::marshal_as<std::string>(txtDisplay->Text));
+		*Temp = ~*Temp;
+		txtDisplay->Text = msclr::interop::marshal_as<System::String^>(Temp->toDec());
+		lbShowOp->Text = "";
 	}
 };
 }
